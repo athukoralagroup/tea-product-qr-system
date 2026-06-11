@@ -4,7 +4,7 @@ import productsData from '../data/products.json';
 import athuLogo from '../assets/athu.png'; 
 
 export const QRMaker: React.FC = () => {
-  const BASE_URL = "http://localhost:5173"; 
+  const BASE_URL = "https://teaproducts.netlify.app"; 
 
   return (
     <div className="min-h-screen bg-gray-100 p-10">
