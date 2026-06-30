@@ -1,10 +1,11 @@
 import React from 'react';
 import { Facebook, Globe, Mail, Phone } from 'lucide-react';
 import logoImg from '../assets/athu.png';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Footer: React.FC = () => {
+  const { t } = useLanguage();
   return (
-    // මොබයිල් එකේදී පෑඩින් px-4 කර දාරවල වැදීම වළක්වා ඇත
     <footer className="bg-[#0b2818] text-green-50 py-12 sm:py-16 px-4 sm:px-10 border-t-4 border-[#0a8c5e]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-start">
 
@@ -15,6 +16,7 @@ export const Footer: React.FC = () => {
               <img
                 src={logoImg}
                 alt="Athukorala Group Logo"
+                loading="lazy"
                 decoding="async"
                 className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-contain"
               />
@@ -24,7 +26,7 @@ export const Footer: React.FC = () => {
                 Athukorala Group
               </span>
               <span className="block text-white/80 font-normal text-base sm:text-lg mt-0.5">
-                (Pvt) Ltd
+                pvt Ltd
               </span>
             </h3>
           </div>
@@ -37,7 +39,7 @@ export const Footer: React.FC = () => {
         {/* Column 2: Contact Info */}
         <div className="md:col-span-4 space-y-4 sm:space-y-6 text-center md:text-left w-full">
           <h4 className="text-xs sm:text-sm font-bold text-white uppercase tracking-widest font-sans border-b border-green-800 pb-2 inline-block md:block">
-            Contact Us
+            {t.footer.contact}
           </h4>
           <ul className="space-y-4">
             <li className="flex items-start justify-center md:justify-start gap-3 text-green-200/80 hover:text-white transition-colors">
@@ -48,7 +50,7 @@ export const Footer: React.FC = () => {
             </li>
             <li className="flex items-center justify-center md:justify-start gap-3 text-green-200/80 hover:text-white transition-colors">
               <Mail size={18} className="text-[#0a8c5e] shrink-0" />
-              <a href="mailto:atf@athukoralagroup.com" className="text-sm font-medium hover:underline decoration-[#0a8c5e] underline-offset-4 transition-all overflow-hidden text-ellipsis">
+              <a href="mailto:atf@athukoralagroup.com" className="text-sm font-medium hover:underline decoration-[#0a8c5e] underline-offset-4 transition-all break-all min-w-0">
                 atf@athukoralagroup.com
               </a>
             </li>
@@ -58,7 +60,7 @@ export const Footer: React.FC = () => {
         {/* Column 3: Connect / Socials */}
         <div className="md:col-span-3 space-y-4 sm:space-y-6 text-center md:text-left w-full">
           <h4 className="text-xs sm:text-sm font-bold text-white uppercase tracking-widest font-sans border-b border-green-800 pb-2 inline-block md:block">
-            Connect
+            {t.footer.connect}
           </h4>
           <ul className="space-y-4">
             <li className="flex items-center justify-center md:justify-start gap-3 text-green-200/80 hover:text-white transition-colors group">
@@ -90,15 +92,7 @@ export const Footer: React.FC = () => {
 
       {/* Footer Bottom / Legal */}
       <div className="max-w-7xl mx-auto mt-10 sm:mt-16 pt-6 border-t border-green-900/50 flex flex-col md:flex-row justify-between items-center gap-4 text-green-200/50 text-[11px] sm:text-xs text-center md:text-left">
-        <p>&copy; {new Date().getFullYear()} Athukorala Group (Pvt) Ltd. All rights reserved.</p>
-        <div className="flex gap-4 sm:gap-6 font-medium">
-          <button className="hover:text-green-200 transition-colors uppercase tracking-wider">
-            Privacy Policy
-          </button>
-          <button className="hover:text-green-200 transition-colors uppercase tracking-wider">
-            Terms of Service
-          </button>
-        </div>
+        <p>&copy; {new Date().getFullYear()} Athukorala Group pvt Ltd. {t.footer.rights}</p>
       </div>
     </footer>
   );

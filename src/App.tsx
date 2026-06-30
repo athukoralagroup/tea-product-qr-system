@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 
@@ -10,10 +11,36 @@ import { PriceSection } from './components/PriceSection';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import ProductDetails from './components/ProductDetails';
+import SpicesPage from './components/SpicesPage';
+import SpiceDetails from './components/SpiceDetails';
 import { QRMaker } from './components/QRMaker';
+import { NotFound } from './components/NotFound';
+import SnapScroll from './components/ui/SnapScroll';
+import HomePage from './components/HomePage';
 
 
 // --- New Pages (QR System) ---
+
+function ScrollToTopButton() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  if (!visible) return null;
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="Scroll to top"
+      className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-amber-400 hover:bg-amber-300 text-emerald-950 shadow-lg flex items-center justify-center transition-colors duration-200"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
+  );
+}
 
 // ප්‍රධාන පිටුවේ (Home Page) අන්තර්ගතය
 function Home() {
@@ -24,6 +51,8 @@ function Home() {
       <BenefitsSection />
       <BrewingSection />
       <PriceSection />
+      {/* <SnapScroll /> */}
+
     </>
   );
 }
@@ -32,29 +61,28 @@ function AppContent() {
   return (
     // මුළු App එකම Router එකකින් ආවරණය කරනවා
     <Router>
-      {/* flex සහ flex-col පාවිච්චි කළේ පිටුවේ content අඩු වුණත් Footer එක යටින්ම තියාගන්න */}
-      <div className="min-h-screen flex flex-col bg-[#faf9f6] font-sans text-emerald-950 selection:bg-emerald-200 selection:text-emerald-950">
+      <div className="min-h-screen flex flex-col font-sans text-emerald-950 selection:bg-emerald-200 selection:text-emerald-950">
         
         {/* Header එක හැම පිටුවකම පේන්න ඕනේ නිසා Routes වලට උඩින් දානවා */}
         <Header />
         
-        {/* flex-grow දාන්නේ මැද කොටසට ඉතුරු ඉඩ ඔක්කොම ගන්න */}
-        <main className="flex-grow pt-20 md:pt-24"> 
-          {/* Header එක පාවෙන (fixed) නිසා main එකට පොඩි padding top එකක් දුන්නා */}
+        {/* ✅ වෙනස: pt-20 md:pt-24 ඉවත් කරන ලදී. එවිට Hero Section එක තිරයේ ඉහළම කෙළවරේ සිට ආරම්භ වේ */}
+        <main className="flex-grow"> 
           <Routes>
-            {/* සාමාන්‍යයෙන් වෙබ්සයිට් එකට ආවම පේන Main Page එක */}
-            <Route path="/" element={<Home />} />
-            
-            {/* QR කේතය Scan කරාම යන Product Page එක */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/catalog" element={<SnapScroll />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/product/:id" element={<ProductDetails />} />
-            
-            {/* අනාගතයේ QR ප්‍රින්ට් කරන්න ඕනේ නම් මේක පාවිච්චි කරන්න පුළුවන් (දැනට comment කරලා තියෙන්නේ) */}
+            <Route path="/spices" element={<SpicesPage />} />
+            <Route path="/spice/:id" element={<SpiceDetails />} />
             <Route path="/admin/qr" element={<QRMaker />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 
         {/* Footer එක හැම පිටුවකම පේන්න ඕනේ නිසා Routes වලට පහළින් දානවා */}
         <Footer />
+        <ScrollToTopButton />
       </div>
     </Router>
   );
