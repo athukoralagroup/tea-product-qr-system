@@ -2,7 +2,7 @@ export type Language = 'en' | 'es' | 'ru' | 'it' | 'fr' | 'ja' | 'zh';
 
 export const translations = {
   en: {
-    nav: { language: 'Language', home: 'Home', spices: 'Spices', search: 'Search', searchPlaceholder: 'Search products...', noProductsFound: 'No products found' },
+    nav: { language: 'Language', home: 'Home', spices: 'Spices', search: 'Search', searchPlaceholder: 'Search products...', noProductsFound: 'No products found', tagline: 'Manufacturer & Exporter of Tea' },
     hero: {
       title: 'Ceylon Green Tea with Lemongrass',
       tagline: 'A refreshing blend of Ceylon Green Tea and zesty Lemongrass',
@@ -39,6 +39,9 @@ export const translations = {
       title: 'Pure Ingredients',
       subtitle: "Nature's finest selection",
       composition: 'Composition',
+      pureNature: 'PURE NATURE',
+      mainImageAlt: 'Tea Ingredients',
+      leavesImageAlt: 'Tea Leaves',
       items: [
         {
           name: 'Green Tea Leaves',
@@ -52,6 +55,9 @@ export const translations = {
     benefits: {
       title: 'Health Benefits',
       subtitle: 'Wellness in every sip',
+      viewAll: 'View All Health Benefits',
+      back: 'Back',
+      hide: 'Show Less',
       items: [
         {
           title: 'Metabolism Boost',
@@ -97,33 +103,36 @@ export const translations = {
       subtitle: 'Choose your perfect blend',
       pack: 'Premium Pack',
       weight: '100g Loose Leaf',
-      price: '$10.00',
+      price: 'USD 10.00',
       cta: 'Add to Cart',
       shipping: 'Free shipping worldwide',
       videoTitle: "Please take a moment to leave a review",
       videoDescription: 'Share Your Experience',
       perPack: '/ pack',
-      trustedExcellence: 'Trusted Excellence'
+      trustedExcellence: 'Trusted Excellence',
+      starRating: '5 star rating'
     },
     footer: {
       rights: 'All rights reserved.',
       contact: 'Contact Us',
       connect: 'Connect',
       privacyPolicy: 'Privacy Policy',
-      termsOfService: 'Terms of Service'
+      termsOfService: 'Terms of Service',
+      description: 'Producers of fine Ceylon tea. Dedicated to uncompromised quality, sustainability, and bringing the authentic taste of Sri Lanka to the world.'
     },
     catalog: {
       discoverMore: 'Discover More',
       sections: [
-        { title: 'Rose Tea', subtitle: 'Aromatic & Delicate', productName: 'Botanical Collection' },
-        { title: 'FBOP Tea', subtitle: 'Premium & Aromatic', productName: 'Artisan Reserve' },
-        { title: 'Ceylon BOP Tea', subtitle: 'Bold & Full-Bodied', productName: 'Heritage Estates' },
-        { title: 'Cinnamon Tea', subtitle: 'Warm & Invigorating', productName: 'Spiced Wellness' }
+        { title: 'Rose Tea 100g Box', subtitle: 'Aromatic & Delicate', productName: 'Botanical Collection' },
+        { title: 'FBOP Tea 100g Box', subtitle: 'Premium & Aromatic', productName: 'Artisan Reserve' },
+        { title: 'Ceylon BOP Tea 100g Bag', subtitle: 'Bold & Full-Bodied', productName: 'Heritage Estates' },
+        { title: 'Cinnamon Tea 100g Box', subtitle: 'Warm & Invigorating', productName: 'Spiced Wellness' }
       ]
     },
     homepage: {
       hero: {
         brandMarker: 'Since 1991 · Sri Lanka',
+        ceylon: 'CEYLON',
         headline1: 'The Art of',
         headline2: 'Ceylon Tea',
         subheading: 'Manufacturers & exporters of premium Ceylon tea and spices. Grown in the highlands. Crafted with generations of expertise.',
@@ -136,6 +145,7 @@ export const translations = {
         languages: 'Languages',
         ceylonOrigin: 'Ceylon Origin',
         gradeQuality: 'Grade Quality',
+        exportValue: 'Export',
       },
       featured: {
         label: 'Curated Selection',
@@ -154,6 +164,7 @@ export const translations = {
       spices: {
         label: 'Also Available',
         badge: 'Premium Spices',
+        imageAlt: 'Ceylon Spices',
         heading1: 'Discover Our',
         heading2: 'Spice Collection',
         description: 'From aromatic cinnamon to rare native spices — explore our curated collection of Ceylon spices, sourced with the same commitment to quality as our teas.',
@@ -166,10 +177,28 @@ export const translations = {
         description: 'Experience our teas through a cinematic editorial journey — crafted to bring the essence of each blend to life.',
         cta: 'Enter Catalog',
       },
-    }
+      manifesto: {
+        quote: '"Every cup carries the soul of the highland — grown where the mist meets the mountain, crafted where tradition meets precision."',
+        attribution: 'Athukorala Group · Pure Ceylon Tea',
+      },
+    },
+    common: {
+      toggleMenu: 'Toggle Menu',
+      scrollToTop: 'Scroll to top',
+    },
+    notFound: {
+      title: 'Product Not Found',
+      message: 'This QR code may be damaged or the product page no longer exists. Please check the packaging and try again.',
+      goHome: 'Go to Home',
+    },
+    qrMaker: {
+      title: 'Tea Products - QR Code Generator',
+      view: 'View',
+      download: 'Download',
+    },
   },
   es: {
-    nav: { language: 'Idioma', home: 'Inicio', spices: 'Especias', search: 'Buscar', searchPlaceholder: 'Buscar productos...', noProductsFound: 'No se encontraron productos' },
+    nav: { language: 'Idioma', home: 'Inicio', spices: 'Especias', search: 'Buscar', searchPlaceholder: 'Buscar productos...', noProductsFound: 'No se encontraron productos', tagline: 'Fabricantes y Exportadores de Té' },
     hero: {
       title: 'Té Verde de Ceilán con Limoncillo',
       tagline: 'Una mezcla refrescante de Té Verde de Ceilán y Limoncillo vibrante',
@@ -202,6 +231,9 @@ export const translations = {
       title: 'Ingredientes Puros',
       subtitle: 'La mejor selección de la naturaleza',
       composition: 'Composición',
+      pureNature: 'NATURALEZA PURA',
+      mainImageAlt: 'Ingredientes de Té',
+      leavesImageAlt: 'Hojas de Té',
       items: [
         {
           name: 'Hojas de Té Verde',
@@ -215,6 +247,9 @@ export const translations = {
     benefits: {
       title: 'Beneficios para la Salud',
       subtitle: 'Bienestar en cada sorbo',
+      viewAll: 'Ver Todos los Beneficios para la Salud',
+      back: 'Volver',
+      hide: 'Ver Menos',
       items: [
         {
           title: 'Impulso Metabólico',
@@ -260,33 +295,36 @@ export const translations = {
       subtitle: 'Elige tu mezcla perfecta',
       pack: 'Paquete Premium',
       weight: '100g Hoja Suelta',
-      price: '$10.00',
+      price: 'USD 10.00',
       cta: 'Añadir al Carrito',
       shipping: 'Envío gratis a todo el mundo',
       videoTitle: "Por favor, tómese un momento para dejar una reseña",
       videoDescription: 'Comparte Tu Experiencia',
       perPack: '/ paquete',
-      trustedExcellence: 'Excelencia de Confianza'
+      trustedExcellence: 'Excelencia de Confianza',
+      starRating: 'Calificación de 5 estrellas'
     },
     footer: {
       rights: 'Todos los derechos reservados.',
       contact: 'Contáctanos',
       connect: 'Conectar',
       privacyPolicy: 'Política de Privacidad',
-      termsOfService: 'Términos de Servicio'
+      termsOfService: 'Términos de Servicio',
+      description: 'Productores de fino té de Ceilán. Dedicados a una calidad incondicional, la sostenibilidad y llevar el auténtico sabor de Sri Lanka al mundo.'
     },
     catalog: {
       discoverMore: 'Descubrir Más',
       sections: [
-        { title: 'Té de Rosa', subtitle: 'Aromático y Delicado', productName: 'Colección Botánica' },
-        { title: 'Té FBOP', subtitle: 'Premium y Aromático', productName: 'Reserva Artesanal' },
-        { title: 'Té BOP de Ceilán', subtitle: 'Intenso y Con Cuerpo', productName: 'Haciendas Heritage' },
-        { title: 'Té de Canela', subtitle: 'Cálido e Invigorante', productName: 'Bienestar Especiado' }
+        { title: 'Té de Rosa 100g Caja', subtitle: 'Aromático y Delicado', productName: 'Colección Botánica' },
+        { title: 'Té FBOP 100g Caja', subtitle: 'Premium y Aromático', productName: 'Reserva Artesanal' },
+        { title: 'Té BOP de Ceilán 100g Bolsita', subtitle: 'Intenso y Con Cuerpo', productName: 'Haciendas Heritage' },
+        { title: 'Té de Canela 100g Caja', subtitle: 'Cálido e Invigorante', productName: 'Bienestar Especiado' }
       ]
     },
     homepage: {
       hero: {
         brandMarker: 'Desde 1991 · Sri Lanka',
+        ceylon: 'CEILÁN',
         headline1: 'El Arte del',
         headline2: 'Té de Ceilán',
         subheading: 'Fabricantes y exportadores de té y especias premium de Ceilán. Cultivado en las tierras altas. Elaborado con generaciones de experiencia.',
@@ -299,6 +337,7 @@ export const translations = {
         languages: 'Idiomas',
         ceylonOrigin: 'Origen Ceilán',
         gradeQuality: 'Calidad Export',
+        exportValue: 'Exportación',
       },
       featured: {
         label: 'Selección Curada',
@@ -317,6 +356,7 @@ export const translations = {
       spices: {
         label: 'También Disponible',
         badge: 'Especias Premium',
+        imageAlt: 'Especias de Ceilán',
         heading1: 'Descubra Nuestra',
         heading2: 'Colección de Especias',
         description: 'Desde la canela aromática hasta las raras especias nativas — explore nuestra colección curada de especias de Ceilán.',
@@ -329,10 +369,28 @@ export const translations = {
         description: 'Experimente nuestros tés a través de un viaje editorial cinematográfico, creado para dar vida a cada mezcla.',
         cta: 'Entrar al Catálogo',
       },
-    }
+      manifesto: {
+        quote: '"Cada taza lleva el alma de las tierras altas — cultivado donde la niebla se encuentra con la montaña, elaborado donde la tradición se encuentra con la precisión."',
+        attribution: 'Grupo Athukorala · Té Puro de Ceilán',
+      },
+    },
+    common: {
+      toggleMenu: 'Alternar Menú',
+      scrollToTop: 'Volver arriba',
+    },
+    notFound: {
+      title: 'Producto No Encontrado',
+      message: 'Este código QR puede estar dañado o la página del producto ya no existe. Por favor, revise el empaque e intente de nuevo.',
+      goHome: 'Ir al Inicio',
+    },
+    qrMaker: {
+      title: 'Productos de Té - Generador de Códigos QR',
+      view: 'Ver',
+      download: 'Descargar',
+    },
   },
   fr: {
-    nav: { language: 'Langue', home: 'Accueil', spices: 'Épices', search: 'Rechercher', searchPlaceholder: 'Rechercher des produits...', noProductsFound: 'Aucun produit trouvé' },
+    nav: { language: 'Langue', home: 'Accueil', spices: 'Épices', search: 'Rechercher', searchPlaceholder: 'Rechercher des produits...', noProductsFound: 'Aucun produit trouvé', tagline: 'Fabricants et Exportateurs de Thé' },
     hero: {
       title: 'Thé Vert Ceylan à la Citronnelle',
       tagline: 'Un mélange rafraîchissant de Thé Vert Ceylan et de Citronnelle zesty',
@@ -365,6 +423,9 @@ export const translations = {
       title: 'Ingrédients Purs',
       subtitle: 'La meilleure sélection de la nature',
       composition: 'Composition',
+      pureNature: 'NATURE PURE',
+      mainImageAlt: 'Ingrédients de Thé',
+      leavesImageAlt: 'Feuilles de Thé',
       items: [
         {
           name: 'Feuilles de Thé Vert',
@@ -378,6 +439,9 @@ export const translations = {
     benefits: {
       title: 'Bienfaits pour la Santé',
       subtitle: 'Le bien-être dans chaque gorgée',
+      viewAll: 'Voir Tous les Bienfaits pour la Santé',
+      back: 'Retour',
+      hide: 'Voir Moins',
       items: [
         {
           title: 'Boost Métabolique',
@@ -423,33 +487,36 @@ export const translations = {
       subtitle: 'Choisissez votre mélange parfait',
       pack: 'Paquet Premium',
       weight: '100g Feuilles Mobiles',
-      price: '$10.00',
+      price: 'USD 10.00',
       cta: 'Ajouter au Panier',
       shipping: 'Livraison gratuite dans le monde entier',
       videoTitle: "Prenez un moment pour laisser un avis, s'il vous plaît",
       videoDescription: 'Partagez Votre Expérience',
       perPack: '/ paquet',
-      trustedExcellence: 'Excellence de Confiance'
+      trustedExcellence: 'Excellence de Confiance',
+      starRating: '5 étoiles'
     },
     footer: {
       rights: 'Tous droits réservés.',
       contact: 'Contactez-nous',
       connect: 'Connexion',
       privacyPolicy: 'Politique de Confidentialité',
-      termsOfService: "Conditions d'utilisation"
+      termsOfService: "Conditions d'utilisation",
+      description: "Producteurs de thé de Ceylan raffiné. Dévoués à une qualité sans compromis, à la durabilité et à faire connaître au monde la saveur authentique du Sri Lanka."
     },
     catalog: {
       discoverMore: 'Découvrir Plus',
       sections: [
-        { title: 'Thé à la Rose', subtitle: 'Aromatique et Délicat', productName: 'Collection Botanique' },
-        { title: 'Thé FBOP', subtitle: 'Premium et Aromatique', productName: 'Réserve Artisanale' },
-        { title: 'Thé BOP de Ceylan', subtitle: 'Corsé et Charpenté', productName: 'Domaines Heritage' },
-        { title: 'Thé à la Cannelle', subtitle: 'Chaud et Tonifiant', productName: 'Bien-être Épicé' }
+        { title: 'Thé à la Rose 100g Boîte', subtitle: 'Aromatique et Délicat', productName: 'Collection Botanique' },
+        { title: 'Thé FBOP 100g Boîte', subtitle: 'Premium et Aromatique', productName: 'Réserve Artisanale' },
+        { title: 'Thé BOP de Ceylan 100g Sachet', subtitle: 'Corsé et Charpenté', productName: 'Domaines Heritage' },
+        { title: 'Thé à la Cannelle 100g Boîte', subtitle: 'Chaud et Tonifiant', productName: 'Bien-être Épicé' }
       ]
     },
     homepage: {
       hero: {
         brandMarker: 'Depuis 1991 · Sri Lanka',
+        ceylon: 'CEYLAN',
         headline1: "L'Art du",
         headline2: 'Thé de Ceylan',
         subheading: "Fabricants et exportateurs de thé et épices premium de Ceylan. Cultivé dans les hauts plateaux. Élaboré avec des générations d'expertise.",
@@ -462,6 +529,7 @@ export const translations = {
         languages: 'Langues',
         ceylonOrigin: 'Origine Ceylan',
         gradeQuality: 'Qualité Export',
+        exportValue: 'Export',
       },
       featured: {
         label: 'Sélection Curatée',
@@ -480,6 +548,7 @@ export const translations = {
       spices: {
         label: 'Aussi Disponible',
         badge: 'Épices Premium',
+        imageAlt: 'Épices de Ceylan',
         heading1: 'Découvrez Notre',
         heading2: "Collection d'Épices",
         description: "De la cannelle aromatique aux épices rares — explorez notre collection curatée d'épices de Ceylan, sélectionnées avec le même soin que nos thés.",
@@ -492,10 +561,28 @@ export const translations = {
         description: "Découvrez nos thés à travers un voyage éditorial cinématique — conçu pour donner vie à l'essence de chaque mélange.",
         cta: 'Accéder au Catalogue',
       },
-    }
+      manifesto: {
+        quote: '"Chaque tasse porte l\'âme des hauts plateaux — cultivé là où la brume rencontre la montagne, élaboré là où la tradition rencontre la précision."',
+        attribution: 'Groupe Athukorala · Thé Pur de Ceylan',
+      },
+    },
+    common: {
+      toggleMenu: 'Basculer le Menu',
+      scrollToTop: 'Retour en haut',
+    },
+    notFound: {
+      title: 'Produit Introuvable',
+      message: "Ce code QR est peut-être endommagé ou la page du produit n'existe plus. Veuillez vérifier l'emballage et réessayer.",
+      goHome: "Retour à l'Accueil",
+    },
+    qrMaker: {
+      title: 'Produits de Thé - Générateur de Codes QR',
+      view: 'Voir',
+      download: 'Télécharger',
+    },
   },
   it: {
-    nav: { language: 'Lingua', home: 'Home', spices: 'Spezie', search: 'Cerca', searchPlaceholder: 'Cerca prodotti...', noProductsFound: 'Nessun prodotto trovato' },
+    nav: { language: 'Lingua', home: 'Home', spices: 'Spezie', search: 'Cerca', searchPlaceholder: 'Cerca prodotti...', noProductsFound: 'Nessun prodotto trovato', tagline: 'Produttori ed Esportatori di Tè' },
     hero: {
       title: 'Tè Verde Ceylon con Citronella',
       tagline: 'Una miscela rinfrescante di Tè Verde Ceylon e Citronella vivace',
@@ -528,6 +615,9 @@ export const translations = {
       title: 'Ingredienti Puri',
       subtitle: 'La migliore selezione della natura',
       composition: 'Composizione',
+      pureNature: 'PURA NATURA',
+      mainImageAlt: 'Ingredienti del Tè',
+      leavesImageAlt: 'Foglie di Tè',
       items: [
         {
           name: 'Foglie di Tè Verde',
@@ -541,6 +631,9 @@ export const translations = {
     benefits: {
       title: 'Benefici per la Salute',
       subtitle: 'Benessere in ogni sorso',
+      viewAll: 'Vedi Tutti i Benefici per la Salute',
+      back: 'Indietro',
+      hide: 'Mostra Meno',
       items: [
         {
           title: 'Spinta Metabolica',
@@ -586,33 +679,36 @@ export const translations = {
       subtitle: 'Scegli la tua miscela perfetta',
       pack: 'Pacchetto Premium',
       weight: '100g Foglie Sfuse',
-      price: '$10.00',
+      price: 'USD 10.00',
       cta: 'Aggiungi al Carrello',
       shipping: 'Spedizione gratuita in tutto il mondo',
       videoTitle: "Per favore, prenditi un momento per lasciare una recensione",
       videoDescription: 'Condividi la Tua Esperienza',
       perPack: '/ confezione',
-      trustedExcellence: 'Eccellenza Fidata'
+      trustedExcellence: 'Eccellenza Fidata',
+      starRating: 'Valutazione a 5 stelle'
     },
     footer: {
       rights: 'Tutti i diritti riservati.',
       contact: 'Contattaci',
       connect: 'Connettiti',
       privacyPolicy: 'Politica sulla Privacy',
-      termsOfService: 'Termini di Servizio'
+      termsOfService: 'Termini di Servizio',
+      description: "Produttori di pregiato tè di Ceylon. Dediti a una qualità senza compromessi, alla sostenibilità e a portare nel mondo l'autentico sapore dello Sri Lanka."
     },
     catalog: {
       discoverMore: 'Scopri di Più',
       sections: [
-        { title: 'Tè alla Rosa', subtitle: 'Aromatico e Delicato', productName: 'Collezione Botanica' },
-        { title: 'Tè FBOP', subtitle: 'Premium e Aromatico', productName: 'Riserva Artigianale' },
-        { title: 'Tè BOP Ceylon', subtitle: 'Intenso e Corposo', productName: 'Tenute Heritage' },
-        { title: 'Tè alla Cannella', subtitle: 'Caldo e Tonificante', productName: 'Benessere Speziato' }
+        { title: 'Tè alla Rosa 100g Scatola', subtitle: 'Aromatico e Delicato', productName: 'Collezione Botanica' },
+        { title: 'Tè FBOP 100g Scatola', subtitle: 'Premium e Aromatico', productName: 'Riserva Artigianale' },
+        { title: 'Tè BOP Ceylon 100g Bustina', subtitle: 'Intenso e Corposo', productName: 'Tenute Heritage' },
+        { title: 'Tè alla Cannella 100g Scatola', subtitle: 'Caldo e Tonificante', productName: 'Benessere Speziato' }
       ]
     },
     homepage: {
       hero: {
         brandMarker: 'Dal 1991 · Sri Lanka',
+        ceylon: 'CEYLON',
         headline1: "L'Arte del",
         headline2: 'Tè di Ceylon',
         subheading: 'Produttori ed esportatori di pregiato tè e spezie di Ceylon. Coltivato sulle alture. Realizzato con generazioni di esperienza.',
@@ -625,6 +721,7 @@ export const translations = {
         languages: 'Lingue',
         ceylonOrigin: 'Origine Ceylon',
         gradeQuality: 'Qualità Export',
+        exportValue: 'Export',
       },
       featured: {
         label: 'Selezione Curata',
@@ -643,6 +740,7 @@ export const translations = {
       spices: {
         label: 'Disponibile Anche',
         badge: 'Spezie Premium',
+        imageAlt: 'Spezie di Ceylon',
         heading1: 'Scopri la Nostra',
         heading2: 'Collezione di Spezie',
         description: "Dalla cannella aromatica alle rare spezie native — esplora la nostra selezione curata di spezie ceylonesi, con lo stesso impegno per la qualità dei nostri tè.",
@@ -655,10 +753,28 @@ export const translations = {
         description: "Vivi i nostri tè attraverso un viaggio editoriale cinematico — creato per dare vita all'essenza di ogni miscela.",
         cta: 'Entra nel Catalogo',
       },
-    }
+      manifesto: {
+        quote: '"Ogni tazza porta l\'anima degli altipiani — coltivato dove la nebbia incontra la montagna, creato dove la tradizione incontra la precisione."',
+        attribution: 'Gruppo Athukorala · Tè Puro di Ceylon',
+      },
+    },
+    common: {
+      toggleMenu: 'Attiva/Disattiva Menu',
+      scrollToTop: 'Torna su',
+    },
+    notFound: {
+      title: 'Prodotto Non Trovato',
+      message: 'Questo codice QR potrebbe essere danneggiato o la pagina del prodotto non esiste più. Si prega di controllare la confezione e riprovare.',
+      goHome: 'Torna alla Home',
+    },
+    qrMaker: {
+      title: 'Prodotti di Tè - Generatore di Codici QR',
+      view: 'Visualizza',
+      download: 'Scarica',
+    },
   },
   ru: {
-    nav: { language: 'Язык', home: 'Главная', spices: 'Специи', search: 'Поиск', searchPlaceholder: 'Поиск продуктов...', noProductsFound: 'Продукты не найдены' },
+    nav: { language: 'Язык', home: 'Главная', spices: 'Специи', search: 'Поиск', searchPlaceholder: 'Поиск продуктов...', noProductsFound: 'Продукты не найдены', tagline: 'Производители и Экспортёры Чая' },
     hero: {
       title: 'Цейлонский Зеленый Чай с Лемонграссом',
       tagline: 'Освежающая смесь цейлонского зеленого чая и яркого лемонграсса',
@@ -691,6 +807,9 @@ export const translations = {
       title: 'Чистые Ингредиенты',
       subtitle: 'Лучший выбор природы',
       composition: 'Состав',
+      pureNature: 'ЧИСТАЯ ПРИРОДА',
+      mainImageAlt: 'Чайные Ингредиенты',
+      leavesImageAlt: 'Чайные Листья',
       items: [
         {
           name: 'Листья Зеленого Чая',
@@ -704,6 +823,9 @@ export const translations = {
     benefits: {
       title: 'Польза для Здоровья',
       subtitle: 'Здоровье в каждом глотке',
+      viewAll: 'Смотреть Всю Пользу для Здоровья',
+      back: 'Назад',
+      hide: 'Свернуть',
       items: [
         {
           title: 'Ускорение Метаболизма',
@@ -749,33 +871,36 @@ export const translations = {
       subtitle: 'Выберите свой идеальный купаж',
       pack: 'Премиум Упаковка',
       weight: '100г Листовой Чай',
-      price: '$10.00',
+      price: 'USD 10.00',
       cta: 'В Корзину',
       shipping: 'Бесплатная доставка по всему миру',
       videoTitle: "Пожалуйста, найдите время, чтобы оставить отзыв",
       videoDescription: 'Поделитесь Своим Опытом',
       perPack: '/ пачка',
-      trustedExcellence: 'Проверенное Качество'
+      trustedExcellence: 'Проверенное Качество',
+      starRating: 'Рейтинг 5 звёзд'
     },
     footer: {
       rights: 'Все права защищены.',
       contact: 'Связаться с нами',
       connect: 'Соединиться',
       privacyPolicy: 'Политика конфиденциальности',
-      termsOfService: 'Условия использования'
+      termsOfService: 'Условия использования',
+      description: 'Производители изысканного цейлонского чая. Мы привержены безупречному качеству, устойчивому развитию и стремимся донести до всего мира подлинный вкус Шри-Ланки.'
     },
     catalog: {
       discoverMore: 'Узнать Больше',
       sections: [
-        { title: 'Чай с Розой', subtitle: 'Ароматный и Нежный', productName: 'Ботаническая Коллекция' },
-        { title: 'Чай FBOP', subtitle: 'Премиум и Ароматный', productName: 'Резерв Мастера' },
-        { title: 'Цейлонский Чай BOP', subtitle: 'Насыщенный и Полнотелый', productName: 'Поместья Heritage' },
-        { title: 'Чай с Корицей', subtitle: 'Тёплый и Бодрящий', productName: 'Пряное Здоровье' }
+        { title: 'Чай с Розой 100g Коробка', subtitle: 'Ароматный и Нежный', productName: 'Ботаническая Коллекция' },
+        { title: 'Чай FBOP 100g Коробка', subtitle: 'Премиум и Ароматный', productName: 'Резерв Мастера' },
+        { title: 'Цейлонский Чай BOP 100g Пакетик', subtitle: 'Насыщенный и Полнотелый', productName: 'Поместья Heritage' },
+        { title: 'Чай с Корицей 100g Коробка', subtitle: 'Тёплый и Бодрящий', productName: 'Пряное Здоровье' }
       ]
     },
     homepage: {
       hero: {
         brandMarker: 'С 1991 года · Шри-Ланка',
+        ceylon: 'ЦЕЙЛОН',
         headline1: 'Искусство',
         headline2: 'Цейлонского Чая',
         subheading: 'Производители и экспортёры премиального цейлонского чая и специй. Выращен в нагорьях. Создан с многовековым мастерством.',
@@ -788,6 +913,7 @@ export const translations = {
         languages: 'Языков',
         ceylonOrigin: 'Родина — Цейлон',
         gradeQuality: 'Экспортный Класс',
+        exportValue: 'Экспорт',
       },
       featured: {
         label: 'Избранная Коллекция',
@@ -806,6 +932,7 @@ export const translations = {
       spices: {
         label: 'Также Доступно',
         badge: 'Премиум Специи',
+        imageAlt: 'Цейлонские Специи',
         heading1: 'Откройте Нашу',
         heading2: 'Коллекцию Специй',
         description: 'От ароматной корицы до редких местных специй — исследуйте нашу тщательно отобранную коллекцию цейлонских специй.',
@@ -818,10 +945,28 @@ export const translations = {
         description: 'Откройте для себя наши чаи через кинематографическое редакционное путешествие — созданное, чтобы передать суть каждого купажа.',
         cta: 'Открыть Каталог',
       },
-    }
+      manifesto: {
+        quote: '"Каждая чашка несёт душу высокогорья — выращено там, где туман встречает горы, создано там, где традиция встречает точность."',
+        attribution: 'Группа Атхукорала · Чистый Цейлонский Чай',
+      },
+    },
+    common: {
+      toggleMenu: 'Открыть/закрыть меню',
+      scrollToTop: 'Наверх',
+    },
+    notFound: {
+      title: 'Товар Не Найден',
+      message: 'Этот QR-код может быть повреждён, либо страница товара больше не существует. Пожалуйста, проверьте упаковку и попробуйте снова.',
+      goHome: 'На Главную',
+    },
+    qrMaker: {
+      title: 'Чайная Продукция - Генератор QR-Кодов',
+      view: 'Просмотр',
+      download: 'Скачать',
+    },
   },
   ja: {
-    nav: { language: '言語', home: 'ホーム', spices: 'スパイス', search: '検索', searchPlaceholder: '製品を検索...', noProductsFound: '製品が見つかりません' },
+    nav: { language: '言語', home: 'ホーム', spices: 'スパイス', search: '検索', searchPlaceholder: '製品を検索...', noProductsFound: '製品が見つかりません', tagline: '紅茶の製造・輸出業者' },
     hero: {
       title: 'レモングラス入りセイロン緑茶',
       tagline: 'セイロン緑茶と爽やかなレモングラスの鮮やかなブレンド',
@@ -854,6 +999,9 @@ export const translations = {
       title: '純粋な成分',
       subtitle: '自然からの最高の贈り物',
       composition: '成分',
+      pureNature: 'ピュアネイチャー',
+      mainImageAlt: '茶葉の原料',
+      leavesImageAlt: '茶葉',
       items: [
         {
           name: '緑茶の葉',
@@ -867,6 +1015,9 @@ export const translations = {
     benefits: {
       title: '健康への利点',
       subtitle: '一口ごとのウェルネス',
+      viewAll: 'すべての健康効果を見る',
+      back: '戻る',
+      hide: '表示を減らす',
       items: [
         {
           title: '代謝促進',
@@ -912,33 +1063,36 @@ export const translations = {
       subtitle: '完璧なブレンドを選ぶ',
       pack: 'プレミアムパック',
       weight: '100g リーフティー',
-      price: '$10.00',
+      price: 'USD 10.00',
       cta: 'カートに追加',
       shipping: '全世界送料無料',
       videoTitle: "よろしければ、レビューをお願いします",
       videoDescription: 'あなたの体験を共有する',
       perPack: '/ パック',
-      trustedExcellence: '信頼の品質'
+      trustedExcellence: '信頼の品質',
+      starRating: '5つ星評価'
     },
     footer: {
       rights: '全著作権所有。',
       contact: 'お問い合わせ',
       connect: '接続',
       privacyPolicy: 'プライバシーポリシー',
-      termsOfService: '利用規約'
+      termsOfService: '利用規約',
+      description: '上質なセイロン紅茶の生産者。妥協のない品質とサステナビリティにこだわり、スリランカの本物の味を世界へお届けします。'
     },
     catalog: {
       discoverMore: 'さらに見る',
       sections: [
-        { title: 'ローズティー', subtitle: '芳醇で繊細', productName: 'ボタニカルコレクション' },
-        { title: 'FBOPティー', subtitle: 'プレミアムで芳醇', productName: 'アルティザンリザーブ' },
-        { title: 'セイロンBOPティー', subtitle: '濃厚でコクのある', productName: 'ヘリテージエステーツ' },
-        { title: 'シナモンティー', subtitle: '温かく活力を与える', productName: 'スパイスウェルネス' }
+        { title: 'ローズティー 100g ボックス', subtitle: '芳醇で繊細', productName: 'ボタニカルコレクション' },
+        { title: 'FBOPティー 100g ボックス', subtitle: 'プレミアムで芳醇', productName: 'アルティザンリザーブ' },
+        { title: 'セイロンBOPティー 100g ティーバッグ', subtitle: '濃厚でコクのある', productName: 'ヘリテージエステーツ' },
+        { title: 'シナモンティー 100g ボックス', subtitle: '温かく活力を与える', productName: 'スパイスウェルネス' }
       ]
     },
     homepage: {
       hero: {
         brandMarker: '1991年創業・スリランカ',
+        ceylon: 'セイロン',
         headline1: 'セイロン茶の',
         headline2: '美の世界へ',
         subheading: 'プレミアムセイロン茶とスパイスの製造・輸出メーカー。高地で育まれ、受け継がれてきた職人の技で作られています。',
@@ -951,6 +1105,7 @@ export const translations = {
         languages: '言語対応',
         ceylonOrigin: 'セイロン産',
         gradeQuality: '輸出グレード',
+        exportValue: '輸出',
       },
       featured: {
         label: '厳選コレクション',
@@ -969,6 +1124,7 @@ export const translations = {
       spices: {
         label: 'その他の商品',
         badge: 'プレミアムスパイス',
+        imageAlt: 'セイロンスパイス',
         heading1: '私たちの',
         heading2: 'スパイスコレクション',
         description: '芳醇なシナモンから希少なスパイスまで、厳選されたセイロンスパイスのコレクションをご覧ください。',
@@ -981,10 +1137,28 @@ export const translations = {
         description: '各ブレンドの本質を伝えるシネマティックな編集の旅でお茶を体験してください。',
         cta: 'カタログへ入る',
       },
-    }
+      manifesto: {
+        quote: '"すべてのカップは高原の魂を運ぶ — 霧が山と出会う場所で育ち、伝統が精密さと出会う場所で作られる。"',
+        attribution: 'アスコラーラ グループ · 純粋セイロン茶',
+      },
+    },
+    common: {
+      toggleMenu: 'メニューを切り替え',
+      scrollToTop: 'トップへ戻る',
+    },
+    notFound: {
+      title: '製品が見つかりません',
+      message: 'このQRコードが破損しているか、製品ページが存在しない可能性があります。パッケージをご確認の上、もう一度お試しください。',
+      goHome: 'ホームに戻る',
+    },
+    qrMaker: {
+      title: '茶製品 - QRコードジェネレーター',
+      view: '表示',
+      download: 'ダウンロード',
+    },
   },
   zh: {
-    nav: { language: '语言', home: '首页', spices: '香料', search: '搜索', searchPlaceholder: '搜索产品...', noProductsFound: '未找到产品' },
+    nav: { language: '语言', home: '首页', spices: '香料', search: '搜索', searchPlaceholder: '搜索产品...', noProductsFound: '未找到产品', tagline: '茶叶制造商与出口商' },
     hero: {
       title: '柠檬草 锡兰绿茶',
       tagline: '锡兰绿茶与鲜活柠檬草的清爽融合',
@@ -1017,6 +1191,9 @@ export const translations = {
       title: '纯净成分',
       subtitle: '大自然的精选',
       composition: '成分',
+      pureNature: '纯净自然',
+      mainImageAlt: '茶叶原料',
+      leavesImageAlt: '茶叶',
       items: [
         { name: '绿茶叶', description: '优质锡兰绿茶，富含儿茶素和抗氧化剂。' },
         { name: '天然柠檬草', description: '干柠檬草茎，带来清新柑橘香气。' }]
@@ -1024,6 +1201,9 @@ export const translations = {
     benefits: {
       title: '健康益处',
       subtitle: '每一口的健康',
+      viewAll: '查看全部健康益处',
+      back: '返回',
+      hide: '收起',
       items: [
         {
           title: '促进代谢',
@@ -1060,33 +1240,36 @@ export const translations = {
       subtitle: '选择您的完美混合',
       pack: '高级包装',
       weight: '100克 散叶茶',
-      price: '$10.00',
+      price: 'USD 10.00',
       cta: '加入购物车',
       shipping: '全球免费配送',
       videoTitle: "请花点时间留下您的评价",
       videoDescription: '分享您的体验',
       perPack: '/ 包',
-      trustedExcellence: '信赖的卓越'
+      trustedExcellence: '信赖的卓越',
+      starRating: '5星评级'
     },
     footer: {
       rights: '版权所有。',
       contact: '联系我们',
       connect: '联系',
       privacyPolicy: '隐私政策',
-      termsOfService: '服务条款'
+      termsOfService: '服务条款',
+      description: '优质锡兰茶生产商。致力于卓越品质与可持续发展，将斯里兰卡的正宗风味带向世界。'
     },
     catalog: {
       discoverMore: '探索更多',
       sections: [
-        { title: '玫瑰茶', subtitle: '芳香细腻', productName: '植物系列' },
-        { title: 'FBOP茶', subtitle: '优质芳香', productName: '工匠珍藏' },
-        { title: '锡兰BOP茶', subtitle: '醇厚饱满', productName: '传承庄园' },
-        { title: '肉桂茶', subtitle: '温暖提神', productName: '香料健康' }
+        { title: '玫瑰茶 100g 盒', subtitle: '芳香细腻', productName: '植物系列' },
+        { title: 'FBOP茶 100g 盒', subtitle: '优质芳香', productName: '工匠珍藏' },
+        { title: '锡兰BOP茶 100g 茶包', subtitle: '醇厚饱满', productName: '传承庄园' },
+        { title: '肉桂茶 100g 盒', subtitle: '温暖提神', productName: '香料健康' }
       ]
     },
     homepage: {
       hero: {
         brandMarker: '创立于1991年 · 斯里兰卡',
+        ceylon: '锡兰',
         headline1: '锡兰茶的',
         headline2: '艺术世界',
         subheading: '优质锡兰茶叶与香料的制造商及出口商。生长于高地，以世代传承的工艺精制而成。',
@@ -1099,6 +1282,7 @@ export const translations = {
         languages: '语言版本',
         ceylonOrigin: '锡兰产地',
         gradeQuality: '出口品质',
+        exportValue: '出口',
       },
       featured: {
         label: '精选系列',
@@ -1117,6 +1301,7 @@ export const translations = {
       spices: {
         label: '同样可选',
         badge: '优质香料',
+        imageAlt: '锡兰香料',
         heading1: '探索我们的',
         heading2: '香料系列',
         description: '从芳香肉桂到稀有土著香料——探索我们精心策划的锡兰香料系列，品质与茶叶同等卓越。',
@@ -1129,6 +1314,24 @@ export const translations = {
         description: '通过电影化的编辑之旅体验我们的茶叶，将每种混合茶的精华带入生活。',
         cta: '进入目录',
       },
-    }
+      manifesto: {
+        quote: '"每一杯都承载着高原的灵魂 — 在薄雾与山峰相遇之处生长，在传统与精湛相遇之处精制。"',
+        attribution: '阿图科拉拉集团 · 纯正锡兰茶',
+      },
+    },
+    common: {
+      toggleMenu: '切换菜单',
+      scrollToTop: '返回顶部',
+    },
+    notFound: {
+      title: '未找到产品',
+      message: '此二维码可能已损坏，或该产品页面已不存在。请检查包装后重试。',
+      goHome: '返回首页',
+    },
+    qrMaker: {
+      title: '茶叶产品 - 二维码生成器',
+      view: '查看',
+      download: '下载',
+    },
   }
 };

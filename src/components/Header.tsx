@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import logoImg12 from '.././assets/athu.png';
 import { LanguageSelector } from './LanguageSelector';
 import productsData from '../data/products.json';
+import spicesData from '../data/spices.json';
 import { useLanguage } from '../context/LanguageContext';
 import { productTranslations } from '../data/productTranslations';
 
@@ -17,21 +18,31 @@ export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false); // Mobile Menu State
 
   const searchRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
   const isProductPage = /^\/product\//.test(location.pathname);
+  const isSpicePage = /^\/spice\//.test(location.pathname);
   const isQRPage = location.pathname === '/admin/qr';
   const isHomePage = location.pathname === '/';
   const isCatalogPage = location.pathname === '/catalog';
+  const isSpicesListPage = location.pathname === '/spices';
 
-  const filteredProducts = searchQuery.trim()
-    ? productsData.filter(p => {
+  const spiceIds = new Set(spicesData.map((s) => s.id));
+  const searchableItems = [...productsData, ...spicesData];
+
+  const getDisplayName = (p: (typeof searchableItems)[number]) =>
+    (productTranslations[p.id]?.[language]?.name || p.name).toLowerCase();
+
+  const filteredProducts = (searchQuery.trim()
+    ? searchableItems.filter(p => {
         const query = searchQuery.toLowerCase();
-        const localizedName = (productTranslations[p.id]?.[language]?.name || p.name).toLowerCase();
+        const localizedName = getDisplayName(p);
         const englishName = (productTranslations[p.id]?.['en']?.name || p.name).toLowerCase();
         return localizedName.includes(query) || englishName.includes(query);
       })
-    : isProductPage ? productsData : [];
+    : (isProductPage || isSpicePage) ? searchableItems : []
+  ).slice().sort((a, b) => getDisplayName(a).localeCompare(getDisplayName(b)));
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -63,7 +74,10 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      const outsideDesktopSearch = !searchRef.current || !searchRef.current.contains(target);
+      const outsideMobileMenu = !mobileMenuRef.current || !mobileMenuRef.current.contains(target);
+      if (outsideDesktopSearch && outsideMobileMenu) {
         setSearchOpen(false);
         setSearchQuery('');
       }
@@ -75,7 +89,7 @@ export const Header: React.FC = () => {
   const handleSelect = (id: string) => {
     if (isQRPage) {
       document.getElementById(`qr-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (isCatalogPage) {
+    } else if (isCatalogPage || isSpicesListPage) {
       setSearchOpen(false);
       setSearchQuery('');
       setMobileMenuOpen(false);
@@ -84,7 +98,7 @@ export const Header: React.FC = () => {
       }, 50);
       return;
     } else {
-      navigate(`/product/${id}`);
+      navigate(spiceIds.has(id) ? `/spice/${id}` : `/product/${id}`);
     }
     setSearchOpen(false);
     setSearchQuery('');
@@ -127,10 +141,10 @@ export const Header: React.FC = () => {
               style={{ fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif" }}
             >
               Athukorala Group
-              <span className="hidden sm:inline font-normal text-[#f5f0e6]/60 italic"> Pvt Ltd.</span>
+              <span className="hidden sm:inline font-normal text-[#f5f0e6]/60 italic"> (PVT) LTD.</span>
             </span>
-            <span className="text-[7.5px] sm:text-[9px] font-medium uppercase tracking-[0.15em] sm:tracking-[0.25em] text-[#d4af6a]/70 mt-1 sm:truncate leading-tight whitespace-normal">
-              Manufacturers &amp; Exporters of Tea
+            <span className="text-[8px] sm:text-[9px] font-medium uppercase tracking-[0.25em] text-[#d4af6a]/70 truncate mt-1">
+              {t.nav.tagline}
             </span>
           </div>
         </div>
@@ -172,7 +186,7 @@ export const Header: React.FC = () => {
         {/* Right: Language Selector + Desktop Search + Hamburger */}
         <div className="flex items-center justify-end gap-2 sm:gap-3">
           {/* Desktop Search */}
-          {<div className="relative hidden sm:block" ref={searchRef}>
+          {!isHomePage && <div className="relative hidden sm:block" ref={searchRef}>
             {!searchOpen ? (
               <button
                 onClick={() => setSearchOpen(true)}
@@ -208,7 +222,7 @@ export const Header: React.FC = () => {
             )}
 
             {/* Desktop Search Dropdown */}
-            {searchOpen && (searchQuery.trim() || isProductPage) && (
+            {searchOpen && (searchQuery.trim() || isProductPage || isSpicePage) && (
               <div className="absolute right-0 mt-3 w-72 bg-[#0c1410]/95 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/40 border border-[#d4af6a]/15 z-50 max-h-64 overflow-hidden">
                 <div className="max-h-64 overflow-y-auto py-2 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-[#d4af6a]/30 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent">
                   {filteredProducts.length > 0 ? (
@@ -237,7 +251,7 @@ export const Header: React.FC = () => {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full border border-[#3d4f43] text-[#f5f0e6]/80 hover:border-[#d4af6a]/50 transition-colors"
-            aria-label="Toggle Menu"
+            aria-label={t.common.toggleMenu}
           >
             {mobileMenuOpen ? (
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -257,13 +271,14 @@ export const Header: React.FC = () => {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`sm:hidden absolute top-full left-0 w-full bg-black/80 backdrop-blur-3xl border-b border-[#d4af6a]/10 overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-auto ${
+        ref={mobileMenuRef}
+        className={`sm:hidden absolute top-full left-0 w-full bg-[#0c1410]/95 backdrop-blur-3xl border-b border-[#d4af6a]/10 overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-auto ${
           mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <div className="p-5 flex flex-col gap-4">
           {/* Mobile Search */}
-          {<div className="flex items-center gap-2 px-4 py-3 bg-[#1a2b22]/60 border border-[#3d4f43]/50 rounded-2xl">
+          {!isHomePage && <div className="flex items-center gap-2 px-4 py-3 bg-[#1a2b22]/60 border border-[#3d4f43]/50 rounded-2xl">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#d4af6a]/60 flex-shrink-0">
               <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
             </svg>
@@ -284,7 +299,7 @@ export const Header: React.FC = () => {
           </div>}
 
           {/* Mobile Search Results */}
-          {!isHomePage && searchQuery.trim() && (
+          {!isHomePage && (searchQuery.trim() || isProductPage || isSpicePage) && (
             <div className="max-h-48 overflow-y-auto bg-[#1a2b22]/40 rounded-2xl border border-[#3d4f43]/40">
               {filteredProducts.length > 0 ? (
                 filteredProducts.map((product, idx) => (

@@ -5,6 +5,7 @@ import { Section } from './Section';
 import { useParams } from 'react-router-dom';
 import productsData from '../data/products.json';
 import spicesData from '../data/spices.json';
+import { brewingTranslations } from '../data/brewingTranslations';
 
 // --- CUSTOM SVG ILLUSTRATIONS ---
 
@@ -83,7 +84,13 @@ export const BrewingSection: React.FC = () => {
   const { id } = useParams();
   const featuredProduct = productsData.find((p) => p.id === id) || spicesData.find((p) => p.id === id) || productsData[0];
   const isTea001 = !id || id === 'tea-001';
-  const brewingSteps = (isTea001 || language !== 'en') ? t.brewing.steps : (featuredProduct.brewing || t.brewing.steps);
+  const rawBrewingSteps = isTea001 ? t.brewing.steps : (featuredProduct.brewing || t.brewing.steps);
+  const brewingSteps = (isTea001 || language === 'en')
+    ? rawBrewingSteps
+    : rawBrewingSteps.map((step: any) => {
+        const key = `${step.title}|||${step.description}`;
+        return brewingTranslations[key]?.[language as keyof typeof brewingTranslations[string]] ?? step;
+      });
 
   return (
     <Section id="brewing" className="bg-emerald-950 relative overflow-hidden py-16 sm:py-24 md:py-32">

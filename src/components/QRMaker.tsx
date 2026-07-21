@@ -1,9 +1,11 @@
 import React from 'react';
 // ✅ QRCodeSVG වෙනුවට QRCodeCanvas භාවිතා කර ඇත
-import { QRCodeCanvas } from 'qrcode.react'; 
+import { QRCodeCanvas } from 'qrcode.react';
 import productsData from '../data/products.json';
 import spicesData from '../data/spices.json';
 import athuLogo from '../assets/athu.png';
+import { useLanguage } from '../context/LanguageContext';
+import { productTranslations } from '../data/productTranslations';
 
 const spiceIds = new Set(spicesData.map((s) => s.id));
 const allItems = [
@@ -12,7 +14,8 @@ const allItems = [
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 export const QRMaker: React.FC = () => {
-  const BASE_URL = "https://teaproducts.netlify.app";
+  const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5173';
+  const { t, language } = useLanguage();
 
   // ✅ QR Code එක PNG පින්තූරයක් ලෙස Download කිරීමේ Function එක
   const downloadQR = (productId: string, imagePath: string) => {
@@ -38,7 +41,7 @@ export const QRMaker: React.FC = () => {
     <div className="min-h-screen bg-gray-100 p-10 pt-[80px] lg:pt-[120px]">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold mb-8 text-center text-emerald-900">
-          Tea Products - QR Code Generator
+          {t.qrMaker.title}
         </h1>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -63,7 +66,7 @@ export const QRMaker: React.FC = () => {
               />
 
               <h3 className="mt-4 text-xs font-bold text-gray-800 line-clamp-2 h-8">
-                {product.image.split('/').pop()?.replace('.jpg', '') ?? product.name}
+                {productTranslations[product.id]?.[language]?.name || product.name}
               </h3>
 
               <div className="flex w-full gap-2 mt-3">
@@ -73,14 +76,14 @@ export const QRMaker: React.FC = () => {
                   rel="noopener noreferrer"
                   className="flex-1 px-2 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-700 transition-colors text-center flex items-center justify-center"
                 >
-                  View
+                  {t.qrMaker.view}
                 </a>
 
                 <button
                   onClick={() => downloadQR(product.id, product.image)}
                   className="flex-1 px-2 py-1.5 bg-slate-800 text-white text-xs font-medium rounded-md hover:bg-slate-900 transition-colors text-center flex items-center justify-center"
                 >
-                  Download
+                  {t.qrMaker.download}
                 </button>
               </div>
 
